@@ -1,0 +1,15 @@
+@model ArticlesViewModel
+
+<div class="article">
+    <h2>@Model.SingleArticle.Title</h2>
+    <h5>Created At: @Model.SingleArticle.CreatedAt</h5>
+    <h5>Last Modified At: @Model.SingleArticle.UpdatedAt</h5>
+    <p>@Model.SingleArticle.Body</p>
+</div>
+
+<div class="post-actions">
+  <ul>
+    <li><a class="btn btn-primary" asp-area="" asp-controller="Article" asp-action="EditArticle" asp-route-id="@Model.SingleArticle.Id">Update</a></li>
+    <li><input type="submit" class="btn btn-danger" value="Delete" onClick="deleteArticle(@Model.SingleArticle.Id)" /></li>
+  </ul>
+</div>

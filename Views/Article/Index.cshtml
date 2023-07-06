@@ -1,0 +1,29 @@
+@model ArticlesViewModel
+@{
+    ViewData["Title"] = "Article Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To Articles</h1>
+   </div>
+
+
+
+<div class="text-right">
+    <a asp-controller="Article" asp-action="NewArticle">New Article</a>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10">
+        <div class="posts-containter">
+            @foreach (var article in Model.Articles)
+            {
+                <div class="post">
+                    <h2><a asp-area = "" asp-controller="Article" asp-action="ViewArticle" asp-route-id="@article.Id">@article.Title</a></h2>
+                    <h5 class="text-muted">@article.UpdatedAt</h5>
+                    <p>@article.Body</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
